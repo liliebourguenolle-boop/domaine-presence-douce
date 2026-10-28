@@ -114,3 +114,15 @@ nav a[aria-current="page"]{color:var(--gold)}
 .follow h3{font-size:1.2rem;letter-spacing:.03em;margin-bottom:8px}
 .follow p{font-size:.95rem;color:var(--muted)}
 .follow .cta{margin-top:20px;text-transform:none;letter-spacing:.04em}
+
+/* Texte centré sur tout le site */
+main,footer{text-align:center}
+.hero p.lead,section .intro,.timeline,.follow{margin-inline:auto}
+.pole,.links a{padding:26px 16px}
+.cta-alt{margin-left:0}
+.cta+.cta{margin-left:10px}
+nav a{text-align:center}
+.timeline li{padding:26px 0 44px;margin-left:0;border-left:0}
+.timeline li:last-child{padding-bottom:0}
+.timeline li::before{left:50%;top:0;transform:translateX(-50%)}
+.timeline li:not(:last-child)::after{content:"";position:absolute;left:50%;bottom:8px;width:1px;height:26px;background:var(--line)}
