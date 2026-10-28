@@ -113,3 +113,7 @@ nav a[aria-current="page"]{color:var(--gold)}
 .timeline b{display:block;font-family:var(--display);font-weight:400;font-size:1.1rem;letter-spacing:.03em;margin-bottom:4px}
 .timeline li.now b{color:var(--gold)}
 .timeline span{font-size:.95rem;color:var(--muted)}
+.follow{margin-top:48px;padding:28px;background:var(--surface);max-width:40em}
+.follow h3{font-size:1.2rem;letter-spacing:.03em;margin-bottom:8px}
+.follow p{font-size:.95rem;color:var(--muted)}
+.follow .cta{margin-top:20px;text-transform:none;letter-spacing:.04em}
