@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Domaine Présence Douce</title>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Layout: une colonne calme, grandes respirations, arche verte en ouverture, pôles en grille souple */
+:root{
+  --bg:#F6F1E4;
+  --surface:#EDE6D3;
+  --fg:#1F3A2E;
+  --muted:#5B6E63;
+  --green:#1F4A38;
+  --gold:#B8903A;
+  --on-green:#F6F1E4;
+  --line:#D8CFB6;
+  --display:'Marcellus','Cormorant Garamond',Georgia,serif;
+  --body:'Figtree','Helvetica Neue',Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#13241C;--surface:#1B3025;--fg:#EFE8D5;--muted:#A9B8AD;--green:#2C6049;--gold:#D2AB55;--on-green:#F6F1E4;--line:#2B4639;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#13241C;--surface:#1B3025;--fg:#EFE8D5;--muted:#A9B8AD;--green:#2C6049;--gold:#D2AB55;--on-green:#F6F1E4;--line:#2B4639;color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.65;margin:0}
+.wrap{max-width:960px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;margin:0}
+.caps{text-transform:uppercase;letter-spacing:.22em}
+p{margin:0}
+a{color:inherit}
+
+header.top{padding-block:28px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-family:var(--display);font-size:15px}
+.brand svg{width:30px;height:34px;flex:none}
+nav{display:flex;gap:22px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+nav a{text-decoration:none;padding-block:6px}
+nav a:hover,nav a:focus-visible{color:var(--gold)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+.hero{padding-block:48px 80px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,260px);gap:48px;align-items:center}
+.hero .eyebrow{font-size:12px;color:var(--gold);margin-bottom:22px}
+.hero h1{font-size:clamp(2.2rem,6vw,4rem);line-height:1.1;letter-spacing:.08em;text-transform:uppercase}
+.hero p.lead{margin-top:26px;font-size:1.15rem;max-width:34em;color:var(--muted)}
+.arch{justify-self:center;width:100%;max-width:240px}
+.arch svg{width:100%;height:auto;display:block}
+
+section{padding-block:72px;border-top:1px solid var(--line)}
+section h2{font-size:clamp(1.5rem,3.4vw,2.1rem);letter-spacing:.06em;text-transform:uppercase;margin-bottom:28px}
+section .intro{max-width:40em;color:var(--muted)}
+section .intro + .intro{margin-top:16px}
+em{font-style:italic;color:var(--gold)}
+
+.poles{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0;margin-top:44px;border-top:1px solid var(--line)}
+.pole{padding:26px 24px 26px 0;border-bottom:1px solid var(--line)}
+.pole h3{font-size:1.15rem;margin-bottom:8px;letter-spacing:.03em}
+.pole p{font-size:.95rem;color:var(--muted);line-height:1.55}
+
+.band{background:var(--green);color:var(--on-green);border-top:0}
+.band h2{color:var(--on-green)}
+.band .intro{color:var(--on-green);opacity:.88}
+.band em{color:#E3C77F}
+.band .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;margin-top:40px}
+.band .fact b{display:block;font-family:var(--display);font-weight:400;font-size:1.25rem;margin-bottom:6px;color:#E3C77F}
+.band .fact span{font-size:.95rem;opacity:.85}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:32px;margin-top:40px}
+.steps h3{font-size:1.1rem;margin-bottom:8px;color:var(--gold)}
+.steps p{font-size:.95rem;color:var(--muted)}
+
+.cta{display:inline-block;margin-top:32px;padding:14px 26px;background:var(--gold);color:#1B2A22;text-decoration:none;font-weight:600;font-size:14px;letter-spacing:.12em;text-transform:uppercase;border-radius:2px}
+.cta:hover{filter:brightness(1.07)}
+.note{margin-top:14px;font-size:.85rem;color:var(--muted)}
+
+footer{padding-block:56px;border-top:1px solid var(--line);text-align:left}
+footer .sig{font-family:var(--display);font-size:1.05rem;letter-spacing:.06em}
+footer .small{margin-top:10px;font-size:.85rem;color:var(--muted)}
+
+@media (max-width:720px){
+  .hero{grid-template-columns:1fr;gap:32px;padding-block:24px 56px}
+  .arch{max-width:150px;justify-self:start}
+  section{padding-block:52px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .hero>*{animation:rise .8s ease both}
+  .hero .arch{animation-delay:.15s}
+  @keyframes rise{from{opacity:.001;transform:translateY(10px)}to{opacity:1;transform:none}}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <svg viewBox="0 0 60 68" aria-hidden="true"><path d="M8 66V30C8 16 18 6 30 6s22 10 22 24v36" fill="none" stroke="var(--green)" stroke-width="5" stroke-linecap="round"/><circle cx="30" cy="40" r="5" fill="var(--gold)"/></svg>
+      <span class="caps">Domaine Présence Douce</span>
+    </div>
+    <nav aria-label="Navigation principale">
+      <a href="#domaine">Le Domaine</a>
+      <a href="#poles">Les pôles</a>
+      <a href="#accompagnement">Accompagnement</a>
+      <a href="#rejoindre">Nous rejoindre</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div>
+      <p class="eyebrow caps">Premier centre ressource de la neuroatypie</p>
+      <h1>Un lieu pensé pour les cerveaux qui fonctionnent autrement</h1>
+      <p class="lead">Un espace où le corps, le système nerveux et le rythme de chacun sont accueillis sans pression, avec douceur et sans obligation de résultat.</p>
+      <a class="cta" href="#rejoindre">Rejoindre la liste d'attente</a>
+    </div>
+    <div class="arch">
+      <svg viewBox="0 0 240 300" role="img" aria-label="Arche verte avec un point doré, logo du Domaine">
+        <path d="M30 290V130C30 62 70 20 120 20s90 42 90 110v160" fill="none" stroke="var(--green)" stroke-width="18" stroke-linecap="round"/>
+        <circle cx="120" cy="170" r="19" fill="var(--gold)"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<section id="domaine">
+  <div class="wrap">
+    <h2>Le Domaine</h2>
+    <p class="intro">Le Domaine Présence Douce est un projet de centre ressource dédié aux personnes neuroatypiques, TDAH, autistes, AuDHD, et à leurs familles. On y vient pour se poser, comprendre son fonctionnement, être accompagné et trouver des outils concrets.</p>
+    <p class="intro">Le projet est porté par Lilie, praticienne <em>psycho-corporelle</em>, avec Vincent, Catherine et Emilie. Une association a été créée pour faire vivre le lieu et recevoir les soutiens, subventions et adhésions.</p>
+  </div>
+</section>
+
+<section id="poles">
+  <div class="wrap">
+    <h2>Les pôles du Domaine</h2>
+    <p class="intro">Chaque pôle répond à un besoin réel, imaginé avec et pour les personnes neuroatypiques.</p>
+    <div class="poles">
+      <div class="pole"><h3>Diagnostic et suivi thérapeutique</h3><p>Des rendez-vous dans un cadre sensoriellement apaisé, avec une liste d'attente prioritaire.</p></div>
+      <div class="pole"><h3>Espace sensoriel</h3><p>Casques anti-bruit, fidgets, couvertures lestées, lumière douce et coins cocon. Ouvert aux familles le mercredi et le samedi.</p></div>
+      <div class="pole"><h3>Gîtes neuroatypiques</h3><p>Deux hébergements pensés pour les sens : lumière adaptée, choix des draps, couette lestée et jardin avec jeux pour les enfants.</p></div>
+      <div class="pole"><h3>Enfance</h3><p>Un accueil tenu par une professionnelle pendant que les parents sont en rendez-vous, et un espace de jeu pour décompresser avant ou après.</p></div>
+      <div class="pole"><h3>Balades et parcours sensoriels</h3><p>Des balades guidées par Catherine et des mini parcours en extérieur : sable, galets, herbe, bois et eau.</p></div>
+      <div class="pole"><h3>Potager partagé</h3><p>Un jardin à cultiver ensemble, à son rythme.</p></div>
+      <div class="pole"><h3>Ateliers de maroquinerie</h3><p>Animés par Vincent, adaptés aux enfants et aux adultes neuroatypiques.</p></div>
+      <div class="pole"><h3>Activités physiques adaptées</h3><p>Yoga, tai-chi et gym douce, pour les personnes neuroatypiques et celles qui vivent avec une pathologie inflammatoire.</p></div>
+      <div class="pole"><h3>Partenariats ESAT</h3><p>Des collaborations avec des établissements d'aide par le travail, au sein du centre.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="accompagnement" class="band">
+  <div class="wrap">
+    <h2>Présence Douce, l'accompagnement</h2>
+    <p class="intro">Un accompagnement individuel de <em>trois mois</em> pour apprendre à vivre avec ton fonctionnement, sans te forcer à entrer dans un moule.</p>
+    <div class="facts">
+      <div class="fact"><b>Régulation du système nerveux</b><span>Reconnaître ce qui t'apaise et ce qui te surcharge.</span></div>
+      <div class="fact"><b>Initiation des tâches</b><span>Trouver comment démarrer quand l'élan ne vient pas.</span></div>
+      <div class="fact"><b>Rythmicité interne</b><span>Écouter ton propre rythme et construire autour.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="rejoindre">
+  <div class="wrap">
+    <h2>Nous rejoindre</h2>
+    <p class="intro">Chaque semaine, une séance de groupe gratuite en visio. Tu peux aussi suivre le projet sur Instagram, <strong>liliepresencedouce_audhd</strong>, et rejoindre la liste d'attente pour être prévenue en priorité de l'ouverture des rendez-vous et des réservations des gîtes.</p>
+    <div class="steps">
+      <div><h3>Liste d'attente</h3><p>Accès prioritaire aux rendez-vous de diagnostic et de suivi, et information à l'ouverture des gîtes.</p></div>
+      <div><h3>Adhésion à l'association</h3><p>Pour soutenir le projet et participer à sa vie.</p></div>
+      <div><h3>Soutien au projet</h3><p>Une cagnotte et des dossiers de mécénat sont en cours pour ouvrir le centre.</p></div>
+    </div>
+    <p class="note">Les liens d'inscription, d'adhésion et de cagnotte arrivent bientôt.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="sig">Domaine Présence Douce, premier centre ressource de la neuroatypie</p>
+    <p class="small">Présence Douce, au feeling, aucune obligation de résultat.</p>
+  </div>
+</footer>
+
+</body>
+</html>
