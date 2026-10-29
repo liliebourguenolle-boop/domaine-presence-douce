@@ -126,3 +126,7 @@ nav a{text-align:center}
 .timeline li:last-child{padding-bottom:0}
 .timeline li::before{left:50%;top:0;transform:translateX(-50%)}
 .timeline li:not(:last-child)::after{content:"";position:absolute;left:50%;bottom:8px;width:1px;height:26px;background:var(--line)}
+.socials{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:18px}
+.socials .cta{margin:0;display:inline-flex;align-items:center;gap:10px}
+.cta+.cta.social{margin-left:0}
+.social svg{width:20px;height:20px;flex:none}
