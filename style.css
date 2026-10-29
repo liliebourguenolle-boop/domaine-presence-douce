@@ -130,3 +130,18 @@ nav a{text-align:center}
 .socials .cta{margin:0;display:inline-flex;align-items:center;gap:10px}
 .cta+.cta.social{margin-left:0}
 .social svg{width:20px;height:20px;flex:none}
+
+/* Icônes et mouvements doux */
+.ico{display:inline-grid;place-items:center;width:52px;height:52px;margin-bottom:14px;border-radius:50%;background:var(--surface);color:var(--gold);transition:transform .35s ease,background .35s ease,color .35s ease}
+.ico svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.pole:hover .ico,.steps>div:hover .ico{transform:translateY(-3px) rotate(-6deg);background:var(--green);color:var(--on-green)}
+.cta{transition:transform .25s ease,filter .25s ease,box-shadow .25s ease}
+.cta:hover{transform:translateY(-2px);box-shadow:0 8px 18px -10px rgba(0,0,0,.35)}
+.links a b{transition:color .25s ease,letter-spacing .35s ease}
+.links a:hover b{letter-spacing:.06em}
+@media (prefers-reduced-motion:no-preference){
+  .js .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease;transition-delay:var(--d,0s)}
+  .js .reveal.in{opacity:1;transform:none}
+  .timeline li.now::before{animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 4px color-mix(in srgb,var(--gold) 25%,transparent)}50%{box-shadow:0 0 0 9px color-mix(in srgb,var(--gold) 0%,transparent)}}
+}
