@@ -15,3 +15,17 @@ document.querySelectorAll('.share').forEach(function(btn){
     if(navigator.clipboard){navigator.clipboard.writeText(data.url).then(function(){btn.textContent='Lien copié';setTimeout(function(){btn.textContent=label},2000)})}
   });
 });
+
+(function(){
+  if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  document.documentElement.classList.add('js');
+  var els=document.querySelectorAll('main section h2, main .intro, .pole, .steps>div, .timeline li, .follow, .links a');
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+  },{rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(el){
+    var i=Array.prototype.indexOf.call(el.parentNode.children,el);
+    el.style.setProperty('--d',Math.min(i,5)*0.08+'s');
+    el.classList.add('reveal');io.observe(el);
+  });
+})();
