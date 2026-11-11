@@ -162,3 +162,5 @@ nav a{text-align:center}
 .pro p:not(.pro-role){margin-top:12px;font-size:.95rem;color:var(--muted)}
 .pro .cta{margin-top:20px;display:inline-flex;align-items:center;gap:10px;text-transform:none;letter-spacing:.02em;font-size:13px;padding:12px 18px}
 .pro .cta svg{width:18px;height:18px;flex:none}
+.pro-links{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:20px}
+.pro-links .cta{margin:0}
