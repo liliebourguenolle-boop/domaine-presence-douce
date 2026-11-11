@@ -145,3 +145,11 @@ nav a{text-align:center}
   .timeline li.now::before{animation:pulse 2.4s ease-in-out infinite}
   @keyframes pulse{0%,100%{box-shadow:0 0 0 4px color-mix(in srgb,var(--gold) 25%,transparent)}50%{box-shadow:0 0 0 9px color-mix(in srgb,var(--gold) 0%,transparent)}}
 }
+.brand-name{display:flex;flex-direction:column;line-height:1.2}
+.brand-name small{font-family:var(--body);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.badge{display:inline-flex;align-items:center;gap:10px;margin-top:22px;padding:8px 16px;border:1px solid var(--gold);border-radius:999px;font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--fg)}
+.badge .dot{width:8px;height:8px;border-radius:50%;background:var(--gold)}
+.hero-ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:30px}
+.hero-ctas .cta{margin:0}
+.missions{margin-top:24px}
+@media (prefers-reduced-motion:no-preference){.badge .dot{animation:pulse 2.4s ease-in-out infinite}}
